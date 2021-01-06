@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th>Symbol</th>
+        <th>Company</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for portfolio in portfolios %}
+        <tr>
+            <td>{{portfolio.symbol}}</td>
+            <td>{{portfolio.company}}</td>
+            <td>{{portfolio.shares}}</td>
+            <td>{{portfolio.price}}</td>
+            <td>{{portfolio.total}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>CASH</td>
+            <td colspan = "3"></td>
+            <td>{{cash}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan = "4"></td>
+            <td>{{grandTotal}}</td>
+        </tr>
+    </tfoot>
+</table>
+
+{% endblock %}
